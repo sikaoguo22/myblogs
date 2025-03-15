@@ -1,0 +1,12 @@
+{
+  "hash": "8a4bfd85d842738f0c6e9f352d7abede",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Post With Code\"\nauthor: \"Harlow Malloc\"\ndate: \"2025-03-12\"\ncategories: [news, code, analysis]\nimage: \"image.jpg\"\n---\n\n\n\n\n# **Installing and Using PyQt6 on WSL**\nThis guide explains how to install and use PyQt6 in **WSL (Windows Subsystem for Linux)**. The steps have been tested on **WSL2 + Windows 11 (with WSLg)**.\n\n## **1. Install Required Dependencies**\nTo run PyQt6 applications, ensure the required libraries are installed:\n\n\n\n\n```{bash}\nsudo apt update\nsudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0\nsudo apt install libxcb-cursor0 qt6-wayland qt6-base-dev x11-apps\n```\n\n\n\n\n# **Install Python and Create a Virtual Environment**\nMake sure Python is installed, along with `venv` for virtual environments:\n\n\n\n\n```{bash}\nsudo apt install python3 python3-venv python3-pip\nsudo apt install python-is-python3\n```\n\n\n\n\nNow, create and activate a virtual environment:\n\n\n\n\n```{bash}\npython -m venv my_env\nsource my_env/bin/activate\n```\n\n\n\n\n# **Install PyQt6**\nInside the virtual environment, install PyQt6:\n\n\n\n\n```{bash}\npip install PyQt6\n```\n\n\n\n\n# **Install PyQt6**\nCreate a Python script (test.py):\n\n::: {#c2f103fc .cell execution_count=1}\n``` {.python .cell-code}\nfrom PyQt6.QtWidgets import QApplication, QLabel\n\napp = QApplication([])\nlabel = QLabel(\"Hello, WSL with PyQt6!\")\nlabel.show()\napp.exec()\n```\n:::\n\n\nRun the script:\n\n\n\n\n```{bash}\npython test.py\n```\n\n\n\n\n# **Exit the Virtual Environment**\nWhen you're done, deactivate the environment:\n\n\n\n\n```{bash}\ndeactivate\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

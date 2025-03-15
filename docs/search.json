@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "myblogs",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 12, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 9, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Installing and Using PyQt6 on WSL\n\n\n\n\n\n\ninstall\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\nskg\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 9, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -21,10 +21,45 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "posts/install_pyqt6_wsl/index.html",
+    "href": "posts/install_pyqt6_wsl/index.html",
+    "title": "Installing and Using PyQt6 on WSL",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "This guide explains how to install and use PyQt6 in WSL (Windows Subsystem for Linux). The steps have been tested on WSL2 + Windows 11 (with WSLg).\n\n\nTo run PyQt6 applications, ensure the required libraries are installed:\nsudo apt update\nsudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0\nsudo apt install libxcb-cursor0 qt6-wayland qt6-base-dev x11-apps\n\n\n\nMake sure Python is installed, along with venv for virtual environments:\nsudo apt install python3 python3-venv python3-pip\nsudo apt install python-is-python3\nNow, create and activate a virtual environment:\npython -m venv my_env\nsource my_env/bin/activate\n\n\n\nInside the virtual environment, install PyQt6:\npip install PyQt6\n\n\n\nCreate a Python script (test.py):\n\nfrom PyQt6.QtWidgets import QApplication, QLabel\n\napp = QApplication([])\nlabel = QLabel(\"Hello, WSL with PyQt6!\")\nlabel.show()\napp.exec()\n\nRun the script:\npython test.py\n\n\n\nWhen you’re done, deactivate the environment:\ndeactivate"
+  },
+  {
+    "objectID": "posts/install_pyqt6_wsl/index.html#install-required-dependencies",
+    "href": "posts/install_pyqt6_wsl/index.html#install-required-dependencies",
+    "title": "Installing and Using PyQt6 on WSL",
+    "section": "",
+    "text": "To run PyQt6 applications, ensure the required libraries are installed:\nsudo apt update\nsudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0\nsudo apt install libxcb-cursor0 qt6-wayland qt6-base-dev x11-apps"
+  },
+  {
+    "objectID": "posts/install_pyqt6_wsl/index.html#install-python-and-create-a-virtual-environment",
+    "href": "posts/install_pyqt6_wsl/index.html#install-python-and-create-a-virtual-environment",
+    "title": "Installing and Using PyQt6 on WSL",
+    "section": "",
+    "text": "Make sure Python is installed, along with venv for virtual environments:\nsudo apt install python3 python3-venv python3-pip\nsudo apt install python-is-python3\nNow, create and activate a virtual environment:\npython -m venv my_env\nsource my_env/bin/activate"
+  },
+  {
+    "objectID": "posts/install_pyqt6_wsl/index.html#install-pyqt6",
+    "href": "posts/install_pyqt6_wsl/index.html#install-pyqt6",
+    "title": "Installing and Using PyQt6 on WSL",
+    "section": "",
+    "text": "Inside the virtual environment, install PyQt6:\npip install PyQt6"
+  },
+  {
+    "objectID": "posts/install_pyqt6_wsl/index.html#test",
+    "href": "posts/install_pyqt6_wsl/index.html#test",
+    "title": "Installing and Using PyQt6 on WSL",
+    "section": "",
+    "text": "Create a Python script (test.py):\n\nfrom PyQt6.QtWidgets import QApplication, QLabel\n\napp = QApplication([])\nlabel = QLabel(\"Hello, WSL with PyQt6!\")\nlabel.show()\napp.exec()\n\nRun the script:\npython test.py"
+  },
+  {
+    "objectID": "posts/install_pyqt6_wsl/index.html#exit-the-virtual-environment",
+    "href": "posts/install_pyqt6_wsl/index.html#exit-the-virtual-environment",
+    "title": "Installing and Using PyQt6 on WSL",
+    "section": "",
+    "text": "When you’re done, deactivate the environment:\ndeactivate"
   }
 ]

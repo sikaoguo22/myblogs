@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
-<meta name="dcterms.date" content="2025-03-12">
+<meta name="author" content="skg">
+<meta name="dcterms.date" content="2025-03-14">
 
-<title>Post With Code – myblogs</title>
+<title>Installing and Using PyQt6 on WSL – myblogs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,11 +149,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">Installing and Using PyQt6 on WSL</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">install</div>
               </div>
                   </div>
   </div>
@@ -130,14 +162,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Harlow Malloc </p>
+               <p>skg </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 12, 2025</p>
+        <p class="date">March 14, 2025</p>
       </div>
     </div>
     
@@ -156,9 +188,52 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a post with executable code.</p>
+<section id="installing-and-using-pyqt6-on-wsl" class="level1">
+<h1>Installing and Using PyQt6 on WSL</h1>
+<p>This guide explains how to install and use PyQt6 in <strong>WSL (Windows Subsystem for Linux)</strong>. The steps have been tested on <strong>WSL2 + Windows 11 (with WSLg)</strong>.</p>
+<section id="install-required-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="install-required-dependencies">Install Required Dependencies</h2>
+<p>To run PyQt6 applications, ensure the required libraries are installed:</p>
+<pre class="{bash}"><code>sudo apt update
+sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0
+sudo apt install libxcb-cursor0 qt6-wayland qt6-base-dev x11-apps</code></pre>
+</section>
+<section id="install-python-and-create-a-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="install-python-and-create-a-virtual-environment">Install Python and Create a Virtual Environment</h2>
+<p>Make sure Python is installed, along with <code>venv</code> for virtual environments:</p>
+<pre class="{bash}"><code>sudo apt install python3 python3-venv python3-pip
+sudo apt install python-is-python3</code></pre>
+<p>Now, create and activate a virtual environment:</p>
+<pre class="{bash}"><code>python -m venv my_env
+source my_env/bin/activate</code></pre>
+</section>
+<section id="install-pyqt6" class="level2">
+<h2 class="anchored" data-anchor-id="install-pyqt6">Install PyQt6</h2>
+<p>Inside the virtual environment, install PyQt6:</p>
+<pre class="{bash}"><code>pip install PyQt6</code></pre>
+</section>
+<section id="test" class="level2">
+<h2 class="anchored" data-anchor-id="test">Test</h2>
+<p>Create a Python script (test.py):</p>
+<div id="dab16980" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PyQt6.QtWidgets <span class="im">import</span> QApplication, QLabel</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> QApplication([])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>label <span class="op">=</span> QLabel(<span class="st">"Hello, WSL with PyQt6!"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>label.show()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>app.<span class="bu">exec</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Run the script:</p>
+<pre class="{bash}"><code>python test.py</code></pre>
+</section>
+<section id="exit-the-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="exit-the-virtual-environment">Exit the Virtual Environment</h2>
+<p>When you’re done, deactivate the environment:</p>
+<pre class="{bash}"><code>deactivate</code></pre>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,66 @@
+---
+title: "Installing and Using PyQt6 on WSL"
+author: "skg"
+date: "2025-03-14"
+categories: [install]
+image: "image.jpg"
+---
+
+# Installing and Using PyQt6 on WSL
+This guide explains how to install and use PyQt6 in **WSL (Windows Subsystem for Linux)**. The steps have been tested on **WSL2 + Windows 11 (with WSLg)**.
+
+## Install Required Dependencies
+To run PyQt6 applications, ensure the required libraries are installed:
+
+```{bash}
+sudo apt update
+sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0
+sudo apt install libxcb-cursor0 qt6-wayland qt6-base-dev x11-apps
+```
+
+## Install Python and Create a Virtual Environment
+Make sure Python is installed, along with `venv` for virtual environments:
+
+```{bash}
+sudo apt install python3 python3-venv python3-pip
+sudo apt install python-is-python3
+```
+
+Now, create and activate a virtual environment:
+
+```{bash}
+python -m venv my_env
+source my_env/bin/activate
+```
+
+## Install PyQt6
+Inside the virtual environment, install PyQt6:
+
+```{bash}
+pip install PyQt6
+```
+
+## Test
+Create a Python script (test.py):
+
+```{python}
+from PyQt6.QtWidgets import QApplication, QLabel
+
+app = QApplication([])
+label = QLabel("Hello, WSL with PyQt6!")
+label.show()
+app.exec()
+```
+
+Run the script:
+
+```{bash}
+python test.py
+```
+
+## Exit the Virtual Environment
+When you're done, deactivate the environment:
+
+```{bash}
+deactivate
+```
